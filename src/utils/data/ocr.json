@@ -1,0 +1,474 @@
+{
+  "data": [
+    {
+      "message": "Book already exists in master",
+      "data": {
+        "bookColorScheme": {
+          "startColor": "#fce414",
+          "middleColor": "#fce414",
+          "endColor": "#fce414",
+          "textColor": "#000000"
+        },
+        "authorContinent": [],
+        "_id": "82b31b65-5f29-48bd-bcba-f3679ebc4c2a",
+        "ISBN": ["9781422142394", "1422142396"],
+        "title": "The Ultimate Question 2.0 (Revised and Expanded Edition)",
+        "author": ["Fred Reichheld"],
+        "publicationYear": 2011,
+        "color": "#CC0000",
+        "genre": ["Business & Economics"],
+        "description": "In the first edition of this landmark book, business loyalty guru Fred Reichheld revealed the question most critical to your company’s future: “Would you recommend us to a friend?” By asking customers this question, you identify detractors, who sully your firm’s reputation and readily switch to competitors, and promoters, who generate good profits and true, sustainable growth. You also generate a vital metric: your Net Promoter Score. Since the book was first published, Net Promoter has transformed companies, across industries and sectors, constituting a game-changing system and ethos that rivals Six Sigma in its power. In this thoroughly updated and expanded edition, Reichheld, with Bain colleague Rob Markey, explains how practitioners have built Net Promoter into a full-fledged management system that drives extraordinary financial and competitive results. With his trademark clarity, Reichheld: • Defines the fundamental concept of Net Promoter, explaining its connection to your company’s growth and sustained success • Presents the closed-loop feedback process and demonstrates its power to energize employees and delight customers • Shares new and compelling stories of companies that have transformed their performance by putting Net Promoter at the center of their business Practical and insightful, The Ultimate Question 2.0 provides a blueprint for long-term growth and success.",
+        "coverImage": "http://books.google.com/books/content?id=YPY7n_OK0fsC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+        "language": ["en"],
+        "bookHeight": 21.512769237152952,
+        "bookThickness": 4.910732322986784,
+        "authorOrigin": ["USA"],
+        "rating": 5,
+        "isIndian": false,
+        "addedAt": "2025-06-05T08:03:57.774Z",
+        "updatedAt": "2025-06-05T08:03:57.774Z",
+        "__v": 1,
+        "chapterLength": 3900,
+        "characterRelation": "Estimated 25-30 key figures and numerous supporting characters; network highlights mentors and rivals.",
+        "estimatedTimeToRead": 731,
+        "lengthOfChapters": [
+          3500, 4200, 3800, 4000, 3600, 4300, 3900, 4100, 3700, 4400, 4000,
+          3600, 4300, 3900, 4100
+        ],
+        "numberOfChapters": 15
+      },
+      "uploadSource": "IMAGE",
+      "uploadSourceUrl": "https://bio-poka.s3.eu-north-1.amazonaws.com/b1a3b75a-16f5-4f6e-a970-2ebc0263c561/1752582530485-Screenshot-2025-07-15-at-4.16.04â¯PM.png",
+      "found": true
+    },
+    {
+      "title": "THE SANDLER RULES",
+      "author": ["David Matts"],
+      "uploadSource": "IMAGE",
+      "uploadSourceUrl": "https://bio-poka.s3.eu-north-1.amazonaws.com/b1a3b75a-16f5-4f6e-a970-2ebc0263c561/1752582530485-Screenshot-2025-07-15-at-4.16.04â¯PM.png",
+      "found": false,
+      "message": "Book not found"
+    },
+    {
+      "message": "Book already exists in master",
+      "data": {
+        "bookColorScheme": {
+          "startColor": "#0454a4",
+          "middleColor": "#0454a4",
+          "endColor": "#0454a4",
+          "textColor": "#FFFFFF"
+        },
+        "authorContinent": [],
+        "_id": "a3dcddaf-5325-4931-928f-bffa5750d787",
+        "ISBN": ["9781000154573", "1000154572"],
+        "title": "SPIN® -Selling",
+        "author": ["Neil Rackham"],
+        "publicationYear": 2020,
+        "color": "#FFFFFF",
+        "genre": ["Business & Economics"],
+        "description": "True or false? In selling high-value products or services: 'closing' increases your chance of success; it is essential to describe the benefits of your product or service to the customer; objection handling is an important skill; open questions are more effective than closed questions. All false, says this provocative book. Neil Rackham and his team studied more than 35,000 sales calls made by 10,000 sales people in 23 countries over 12 years. Their findings revealed that many of the methods developed for selling low-value goods just don‘t work for major sales. Rackham went on to introduce his SPIN-Selling method. SPIN describes the whole selling process: Situation questions Problem questions Implication questions Need-payoff questions SPIN-Selling provides you with a set of simple and practical techniques which have been tried in many of today‘s leading companies with dramatic improvements to their sales performance.",
+        "coverImage": "http://books.google.com/books/content?id=IjXfDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+        "language": ["en"],
+        "bookHeight": 27.58552070470248,
+        "bookThickness": 3.1322095753464096,
+        "authorOrigin": ["USA"],
+        "rating": 0,
+        "isIndian": false,
+        "addedAt": "2025-06-05T08:03:57.385Z",
+        "updatedAt": "2025-06-05T08:03:57.385Z",
+        "__v": 1,
+        "chapterLength": 2800,
+        "characterRelation": "Focuses on sales strategies, not characters. No character relationships to analyze.",
+        "estimatedTimeToRead": 525,
+        "lengthOfChapters": [
+          2500, 3000, 2700, 2900, 2600, 2800, 3100, 2400, 2900, 2700, 3000,
+          2500, 2800, 2600, 2900
+        ],
+        "numberOfChapters": 15
+      },
+      "uploadSource": "IMAGE",
+      "uploadSourceUrl": "https://bio-poka.s3.eu-north-1.amazonaws.com/b1a3b75a-16f5-4f6e-a970-2ebc0263c561/1752582530485-Screenshot-2025-07-15-at-4.16.04â¯PM.png",
+      "found": true
+    },
+    {
+      "message": "Book already exists in master",
+      "data": {
+        "bookColorScheme": {
+          "startColor": "#334C2C",
+          "middleColor": "#334C2C",
+          "endColor": "#334C2C",
+          "textColor": "#FFFFFF"
+        },
+        "authorContinent": [],
+        "_id": "63e44784-8f86-4df3-bd69-d9444a3f17f9",
+        "ISBN": ["1409294102", "9781409294108"],
+        "title": "How to Answer Those Awkward Questions when Selling",
+        "author": ["The No-nonsense Guide to Selling John Mepham"],
+        "publicationYear": 2009,
+        "color": "#F38B00",
+        "genre": [],
+        "description": "THE ONLY BOOK THAT POSITIVELY TEACHES HOW TO WIN WHEN SELLING.All negotiators (sellers and buyers) use awkward questions to try to embarrass and lull the other person into divulging facts that damage or weaken their line of reasoning.There is no doubt that the bedrock of all negotiating, dealing and bargaining is this question/answer scenario. It follows that the party who has aquired the expertise to win such a free-for-all will gain the most from the negotiations.This book teaches how to win that prize. It gives the fifteen typical questions and, more importantly, suggests an array of answers and explanations. A Must for all negotiators who really want to win. a MUST MUST for all would-be negotiators. An easy to understand book on answering awkward,tricky, devious,underhand, dangerous questions. Don't splutter - know all the answers.",
+        "coverImage": "",
+        "language": ["en"],
+        "bookHeight": 29.891099507027477,
+        "bookThickness": 3.2027979265428144,
+        "authorOrigin": ["USA"],
+        "rating": 0,
+        "isIndian": false,
+        "addedAt": "2025-06-05T08:18:01.841Z",
+        "updatedAt": "2025-06-05T08:18:01.841Z",
+        "__v": 1,
+        "chapterLength": 3500,
+        "characterRelation": "Focuses on interactions with potential clients, so characters are primarily the salesperson and various client types. Approximately 20 distinct client profiles are explored. Relationships revolve around sales interactions.",
+        "estimatedTimeToRead": 437,
+        "lengthOfChapters": [
+          3200, 3800, 3400, 3600, 3300, 3700, 3500, 3900, 3100, 3500
+        ],
+        "numberOfChapters": 10
+      },
+      "uploadSource": "IMAGE",
+      "uploadSourceUrl": "https://bio-poka.s3.eu-north-1.amazonaws.com/b1a3b75a-16f5-4f6e-a970-2ebc0263c561/1752582530485-Screenshot-2025-07-15-at-4.16.04â¯PM.png",
+      "found": true
+    },
+    {
+      "message": "Book already exists in master",
+      "data": {
+        "bookColorScheme": {
+          "startColor": "#d48c3c",
+          "middleColor": "#d48c3c",
+          "endColor": "#d48c3c",
+          "textColor": "#000000"
+        },
+        "authorContinent": [],
+        "_id": "6723adff-22c3-4aaf-84cb-22a8203eb294",
+        "ISBN": ["9781501164293", "1501164295"],
+        "title": "Way of the Wolf",
+        "author": ["Jordan Belfort"],
+        "publicationYear": 2017,
+        "color": "#FFD700",
+        "genre": ["Business & Economics"],
+        "description": "Jordan Belfort—immortalized by Leonardo DiCaprio in the hit movie The Wolf of Wall Street—reveals the step-by-step sales and persuasion system proven to turn anyone into a sales-closing, money-earning rock star. For the first time ever, Jordan Belfort opens his playbook and gives you access to his exclusive step-by-step system—the same system he used to create massive wealth for himself, his clients, and his sales teams. Until now this revolutionary program was only available through Jordan’s $1,997 online training. Now, in Way of the Wolf, Belfort is ready to unleash the power of persuasion to a whole new generation, revealing how anyone can bounce back from devastating setbacks, master the art of persuasion, and build wealth. Every technique, every strategy, and every tip has been tested and proven to work in real-life situations. Written in his own inimitable voice, Way of the Wolf cracks the code on how to persuade anyone to do anything, and coaches readers—regardless of age, education, or skill level—to be a master sales person, negotiator, closer, entrepreneur, or speaker.",
+        "coverImage": "http://books.google.com/books/content?id=dUBpDQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+        "language": ["en"],
+        "bookHeight": 29.475799041083825,
+        "bookThickness": 2.4268356945086245,
+        "authorOrigin": ["USA"],
+        "rating": 5,
+        "isIndian": false,
+        "addedAt": "2025-06-04T11:35:29.303Z",
+        "updatedAt": "2025-06-04T11:35:29.303Z",
+        "__v": 1,
+        "chapterLength": 3500,
+        "characterRelation": "The book focuses primarily on Jordan Belfort and his associates at Stratton Oakmont. While numerous clients and other individuals are mentioned, the core relationships center around Belfort's inner circle and their interactions within the firm. Approximately 20 key individuals are repeatedly mentioned.",
+        "estimatedTimeToRead": 438,
+        "lengthOfChapters": [
+          3200, 3800, 3300, 3700, 3500, 3600, 3400, 3900, 3100, 3500
+        ],
+        "numberOfChapters": 10
+      },
+      "uploadSource": "IMAGE",
+      "uploadSourceUrl": "https://bio-poka.s3.eu-north-1.amazonaws.com/b1a3b75a-16f5-4f6e-a970-2ebc0263c561/1752582530485-Screenshot-2025-07-15-at-4.16.04â¯PM.png",
+      "found": true
+    },
+    {
+      "message": "Book already exists in master",
+      "data": {
+        "bookColorScheme": {
+          "startColor": "#e3244b",
+          "middleColor": "#e3244b",
+          "endColor": "#e3244b",
+          "textColor": "#FFFFFF"
+        },
+        "authorContinent": [],
+        "_id": "71f51cc6-8a20-46c0-ba75-cbb7054f2314",
+        "ISBN": ["9780971946880", "0971946884"],
+        "title": "Jeffrey Gitomer's Little Red Book of Selling",
+        "author": ["Jeffrey Gitomer"],
+        "publicationYear": 2023,
+        "color": "#FA8072",
+        "genre": ["Business & Economics"],
+        "description": "How can this book help you make more sales right now? Jeffrey Gitomer’s Little Red Book of Selling became the all-time bestselling Classic because it’s the only sales book that focuses on BOTH “how to sell” and the unknown secret of selling, “why people buy.” Answers that every salesperson wants and needs. This classic edition also tells the never-before published backstory of how the Little Red Book came about, and includes bonus content of Jeffrey’s best ideas and thoughts. Making every bestseller list including the coveted New York Times, the Little Red Book made the Wall Street Journal list a record-setting 103 straight weeks. Sales leaders are saying, “I give it to every new salesperson.” “A MUST READ and IMPLEMENT!” “You hit the nail on the head with regards to what works and why it works.” “Bite-size chunks of sales GOLD you can absorb and use the same minute.” With self-tests and easy to grasp, real world information, the Little Red Book of Selling gives you the insight and strategies to understand why sales happen. The book includes Jeffrey’s 12.5 Principles of Sales Greatness and strategies and answers from a lifetime of selling that will teach you how to make sales. And by mastering the principles that Jeffrey Gitomer gives you, you’ll make sales happen for yourself… forever.",
+        "coverImage": "http://books.google.com/books/content?id=MzmiEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+        "language": ["en"],
+        "bookHeight": 27.79166853429737,
+        "bookThickness": 2.746655580690277,
+        "authorOrigin": ["USA"],
+        "rating": 0,
+        "isIndian": false,
+        "addedAt": "2025-06-04T11:35:29.354Z",
+        "updatedAt": "2025-06-04T11:35:29.354Z",
+        "__v": 1,
+        "chapterLength": 3500,
+        "characterRelation": "Primarily focuses on the reader and customers; limited character network beyond these roles. Approximately 5-10 archetypal characters represented.",
+        "estimatedTimeToRead": 525,
+        "lengthOfChapters": [
+          3200, 3800, 3400, 3600, 3300, 3700, 3500, 3900, 3100, 3500, 3800, 3300
+        ],
+        "numberOfChapters": 12
+      },
+      "uploadSource": "IMAGE",
+      "uploadSourceUrl": "https://bio-poka.s3.eu-north-1.amazonaws.com/b1a3b75a-16f5-4f6e-a970-2ebc0263c561/1752582530485-Screenshot-2025-07-15-at-4.16.04â¯PM.png",
+      "found": true
+    },
+    {
+      "message": "Book already exists in master",
+      "data": {
+        "bookColorScheme": {
+          "startColor": "#d1a78e",
+          "middleColor": "#d1a78e",
+          "endColor": "#d1a78e",
+          "textColor": "#000000"
+        },
+        "authorContinent": [],
+        "_id": "e14f9d0a-9516-4ebc-9014-727bb9e59a9d",
+        "ISBN": ["9780698161863", "0698161866"],
+        "title": "Getting Things Done",
+        "author": ["David Allen"],
+        "publicationYear": 2015,
+        "color": "#DAA520",
+        "genre": ["Business & Economics"],
+        "description": "The book Lifehack calls \"The Bible of business and personal productivity.\" \"A completely revised and updated edition of the blockbuster bestseller from 'the personal productivity guru'\"—Fast Company Since it was first published almost fifteen years ago, David Allen’s Getting Things Done has become one of the most influential business books of its era, and the ultimate book on personal organization. “GTD” is now shorthand for an entire way of approaching professional and personal tasks, and has spawned an entire culture of websites, organizational tools, seminars, and offshoots. Allen has rewritten the book from start to finish, tweaking his classic text with important perspectives on the new workplace, and adding material that will make the book fresh and relevant for years to come. This new edition of Getting Things Done will be welcomed not only by its hundreds of thousands of existing fans but also by a whole new generation eager to adopt its proven principles.",
+        "coverImage": "http://books.google.com/books/content?id=7PoYBAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+        "language": ["en"],
+        "bookHeight": 25.034746586038025,
+        "bookThickness": 2.104409070833115,
+        "authorOrigin": ["USA"],
+        "rating": 4.5,
+        "isIndian": false,
+        "addedAt": "2025-06-04T11:35:29.131Z",
+        "updatedAt": "2025-06-04T11:35:29.131Z",
+        "__v": 1,
+        "chapterLength": 3750,
+        "characterRelation": "This book is non-fiction and does not have characters or character relationships.",
+        "estimatedTimeToRead": 609,
+        "lengthOfChapters": [
+          3500, 4000, 3800, 3600, 3900, 3700, 3550, 4100, 3750, 3650, 3850,
+          3700, 3300
+        ],
+        "numberOfChapters": 13
+      },
+      "uploadSource": "IMAGE",
+      "uploadSourceUrl": "https://bio-poka.s3.eu-north-1.amazonaws.com/b1a3b75a-16f5-4f6e-a970-2ebc0263c561/1752582530485-Screenshot-2025-07-15-at-4.16.04â¯PM.png",
+      "found": true
+    },
+    {
+      "title": "BUSINESS STRIPPED BARE",
+      "author": ["[Unreadable Author]"],
+      "uploadSource": "IMAGE",
+      "uploadSourceUrl": "https://bio-poka.s3.eu-north-1.amazonaws.com/b1a3b75a-16f5-4f6e-a970-2ebc0263c561/1752582530485-Screenshot-2025-07-15-at-4.16.04â¯PM.png",
+      "found": false,
+      "message": "Book not found"
+    },
+    {
+      "message": "Book already exists in master",
+      "data": {
+        "bookColorScheme": {
+          "startColor": "#ae7b35",
+          "middleColor": "#ae7b35",
+          "endColor": "#ae7b35",
+          "textColor": "#000000"
+        },
+        "authorContinent": [],
+        "_id": "46ac4e71-7dee-4471-8957-3f987fcd78a0",
+        "ISBN": ["9781847659781", "1847659780"],
+        "title": "The Customer Rules",
+        "author": ["Lee Cockerell"],
+        "publicationYear": 2013,
+        "color": "#5DADE2",
+        "genre": ["Business & Economics"],
+        "description": "Today, consumers have more choice than ever before. It's no longer enough to simply provide a service - companies who want to stay in business must also provide impeccable service with such consistency, integrity and creativity that people who experience it will not only keep coming back for more, but recommend your business to their friends, families, and colleagues. The Customer Rules is entirely focused on one ultimate goal: to help you, no matter what your position or job title, secure the most revenue-boosting asset you could wish for: a reputation for excellent service. Lee Cockerell, former Executive Vice President of Operations at Disney World - a company which has redefined what a business can do for their customers - shows you how: from why you should 'Never say no - except No Problem' to asking yourself 'What Would Mum Do?'. His 39 easy-to-follow rules apply to any industry and any company, large, small, public, private, online or High Street. The principles revealed in this book, tried and tested in one of the world's happiest environments, can give you everything you need to truly connect with your customers.",
+        "coverImage": "http://books.google.com/books/content?id=yY4VpyUMeBAC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+        "language": ["en"],
+        "bookHeight": 24.081281691387595,
+        "bookThickness": 3.1726103071982914,
+        "authorOrigin": ["USA"],
+        "rating": 0,
+        "isIndian": false,
+        "addedAt": "2025-06-04T11:35:28.610Z",
+        "updatedAt": "2025-06-04T11:35:28.610Z",
+        "__v": 1,
+        "chapterLength": 3500,
+        "characterRelation": "Approx. 20 characters with significant customer-employee and peer-to-peer relationships. Key clusters include management teams, customer segments, and internal departments.",
+        "estimatedTimeToRead": 656,
+        "lengthOfChapters": [
+          3200, 3800, 3300, 3600, 3400, 3700, 3500, 3300, 3900, 3100, 3600,
+          3400, 3800, 3200, 3700
+        ],
+        "numberOfChapters": 15
+      },
+      "uploadSource": "IMAGE",
+      "uploadSourceUrl": "https://bio-poka.s3.eu-north-1.amazonaws.com/b1a3b75a-16f5-4f6e-a970-2ebc0263c561/1752582530485-Screenshot-2025-07-15-at-4.16.04â¯PM.png",
+      "found": true
+    },
+    {
+      "message": "Book already exists in master",
+      "data": {
+        "bookColorScheme": {
+          "startColor": "#eb0f0f",
+          "middleColor": "#eb0f0f",
+          "endColor": "#eb0f0f",
+          "textColor": "#FFFFFF"
+        },
+        "authorContinent": [],
+        "_id": "5aef22db-c8bf-4b7a-adcd-a8d08f06ddbe",
+        "ISBN": ["9781472228031", "1472228030"],
+        "title": "TED Talks",
+        "author": ["Chris Anderson"],
+        "publicationYear": 2016,
+        "color": "#FFFFFF",
+        "genre": ["Business & Economics"],
+        "description": "'This is not just the most insightful book ever written on public speaking-it's also a brilliant, profound look at how to communicate' - Adam Grant, author of ORIGINALS In Ted Talks Chris Anderson, Head of TED, reveals the inside secrets of how to give a first-class presentation. Where books like Talk Like TED and TED Talks Storytelling whetted the appetite, here is the official TED guide to public speaking from the man who put TED talks on the world's stage. Anderson shares his five key techniques to presentation success: Connection, Narration, Explanation, Persuasion and Revelation (plus the three to avoid). He also answers the most frequently asked questions about giving a talk, from 'What should I wear?' to 'How do I handle my nerves?'. Ted Talks is also full of presentation tips from such TED notable speakers as Sir Ken Robinson, Bill Gates, Mary Roach, Amy Cuddy, Elizabeth Gilbert, Dan Gilbert, Amanda Palmer, Matt Ridley and many more. This is a lively, fun read with great practical application from the man who knows what goes into a truly memorable speech. In Ted Talks Anderson pulls back the TED curtain for anyone who wants to learn how to prepare an exceptional presentation. 'Nobody in the world better understands the art and science of public speaking than Chris Anderson. He is absolutely the best person to have written this book' - Elizabeth Gilbert",
+        "coverImage": "http://books.google.com/books/content?id=SgUoCgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+        "language": ["en"],
+        "bookHeight": 23.006348784786795,
+        "bookThickness": 2.340492005219052,
+        "authorOrigin": ["USA"],
+        "rating": 3,
+        "isIndian": false,
+        "addedAt": "2025-06-04T11:35:28.595Z",
+        "updatedAt": "2025-06-04T11:35:28.595Z",
+        "__v": 1,
+        "chapterLength": 3000,
+        "characterRelation": "This book primarily features various TED speakers. Character relationships are less emphasized, as the focus is on individual presentations and ideas rather than character interactions. There are indirect connections through common themes and TED community.",
+        "estimatedTimeToRead": 450,
+        "lengthOfChapters": [
+          3300, 2700, 3150, 2850, 3450, 2550, 3000, 2900, 3200, 2600, 3350, 2950
+        ],
+        "numberOfChapters": 12
+      },
+      "uploadSource": "IMAGE",
+      "uploadSourceUrl": "https://bio-poka.s3.eu-north-1.amazonaws.com/b1a3b75a-16f5-4f6e-a970-2ebc0263c561/1752582530485-Screenshot-2025-07-15-at-4.16.04â¯PM.png",
+      "found": true
+    },
+    {
+      "title": "The Freaks Shall Inherit the Earth",
+      "author": ["[Unreadable Author]"],
+      "uploadSource": "IMAGE",
+      "uploadSourceUrl": "https://bio-poka.s3.eu-north-1.amazonaws.com/b1a3b75a-16f5-4f6e-a970-2ebc0263c561/1752582530485-Screenshot-2025-07-15-at-4.16.04â¯PM.png",
+      "found": false,
+      "message": "Book not found"
+    },
+    {
+      "message": "Book already exists in master",
+      "data": {
+        "bookColorScheme": {
+          "startColor": "#B1B1B1",
+          "middleColor": "#FFFFFF",
+          "endColor": "#AAAAAA",
+          "textColor": "#000000"
+        },
+        "authorContinent": [],
+        "_id": "12dcbd4d-d6a8-4f01-b0c3-91bf7926c9a1",
+        "ISBN": ["0062316710", "9780062316714"],
+        "title": "Jab, Jab, Jab, Right Hook",
+        "author": ["Gary Vaynerchuk"],
+        "publicationYear": 2013,
+        "color": "#FFFFFF",
+        "genre": [],
+        "description": "No description available",
+        "coverImage": "",
+        "language": ["en"],
+        "bookHeight": 25.952496086528033,
+        "bookThickness": 4.273079142631058,
+        "authorOrigin": ["USA"],
+        "rating": 0,
+        "isIndian": false,
+        "addedAt": "2025-06-04T11:35:28.280Z",
+        "updatedAt": "2025-06-04T11:35:28.280Z",
+        "__v": 1,
+        "chapterLength": 2700,
+        "characterRelation": "This book focuses on marketing strategies and tactics, rather than character-driven narratives.  Therefore, character relationships are not applicable.",
+        "estimatedTimeToRead": 337,
+        "lengthOfChapters": [
+          2500, 2900, 2600, 2800, 2400, 2700, 3000, 2500, 2900, 2700
+        ],
+        "numberOfChapters": 10
+      },
+      "uploadSource": "IMAGE",
+      "uploadSourceUrl": "https://bio-poka.s3.eu-north-1.amazonaws.com/b1a3b75a-16f5-4f6e-a970-2ebc0263c561/1752582530485-Screenshot-2025-07-15-at-4.16.04â¯PM.png",
+      "found": true
+    },
+    {
+      "title": "THE NEW SOLUTION SELLING",
+      "author": ["[Unreadable Author]"],
+      "uploadSource": "IMAGE",
+      "uploadSourceUrl": "https://bio-poka.s3.eu-north-1.amazonaws.com/b1a3b75a-16f5-4f6e-a970-2ebc0263c561/1752582530485-Screenshot-2025-07-15-at-4.16.04â¯PM.png",
+      "found": false,
+      "message": "Book not found"
+    },
+    {
+      "message": "Book already exists in master",
+      "data": {
+        "bookColorScheme": {
+          "startColor": "#fcdc04",
+          "middleColor": "#fcdc04",
+          "endColor": "#fcdc04",
+          "textColor": "#000000"
+        },
+        "authorContinent": [],
+        "_id": "3e746e3f-1300-41b6-ad4f-79d598680427",
+        "ISBN": ["9781633691797", "1633691799"],
+        "title": "The Innovator's Dilemma",
+        "author": ["Clayton M. Christensen"],
+        "publicationYear": 2015,
+        "color": "#000000",
+        "genre": ["Business & Economics"],
+        "description": "Named one of 100 Leadership & Success Books to Read in a Lifetime by Amazon Editors A Wall Street Journal and Businessweek bestseller. Named by Fast Company as one of the most influential leadership books in its Leadership Hall of Fame. An innovation classic. From Steve Jobs to Jeff Bezos, Clay Christensen’s work continues to underpin today’s most innovative leaders and organizations. The bestselling classic on disruptive innovation, by renowned author Clayton M. Christensen. His work is cited by the world’s best-known thought leaders, from Steve Jobs to Malcolm Gladwell. In this classic bestseller—one of the most influential business books of all time—innovation expert Clayton Christensen shows how even the most outstanding companies can do everything right—yet still lose market leadership. Christensen explains why most companies miss out on new waves of innovation. No matter the industry, he says, a successful company with established products will get pushed aside unless managers know how and when to abandon traditional business practices. Offering both successes and failures from leading companies as a guide, The Innovator’s Dilemma gives you a set of rules for capitalizing on the phenomenon of disruptive innovation. Sharp, cogent, and provocative—and consistently noted as one of the most valuable business ideas of all time—The Innovator’s Dilemma is the book no manager, leader, or entrepreneur should be without.",
+        "coverImage": "http://books.google.com/books/content?id=lURBCgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+        "language": ["en"],
+        "bookHeight": 23.17173917755504,
+        "bookThickness": 2.685704706280249,
+        "authorOrigin": ["USA"],
+        "rating": 0,
+        "isIndian": false,
+        "addedAt": "2025-06-04T11:35:29.940Z",
+        "updatedAt": "2025-06-04T11:35:29.940Z",
+        "__v": 1,
+        "chapterLength": 4500,
+        "characterRelation": "Focuses on business entities rather than individuals, involving large corporations, startups, and their relationships within the technology industry.",
+        "estimatedTimeToRead": 618.75,
+        "lengthOfChapters": [
+          4100, 4800, 4300, 5000, 4600, 4400, 4900, 4200, 4700, 4000, 4300
+        ],
+        "numberOfChapters": 11
+      },
+      "uploadSource": "IMAGE",
+      "uploadSourceUrl": "https://bio-poka.s3.eu-north-1.amazonaws.com/b1a3b75a-16f5-4f6e-a970-2ebc0263c561/1752582530485-Screenshot-2025-07-15-at-4.16.04â¯PM.png",
+      "found": true
+    },
+    {
+      "message": "Book already exists in master",
+      "data": {
+        "bookColorScheme": {
+          "startColor": "#0a06ab",
+          "middleColor": "#0a06ab",
+          "endColor": "#0a06ab",
+          "textColor": "#FFFFFF"
+        },
+        "authorContinent": [],
+        "lengthOfChapters": [],
+        "_id": "f1b9026d-b01d-49e0-8a00-32d56933f15a",
+        "ISBN": ["9781458731555", "1458731553"],
+        "title": "The Five Temptations of a CEO",
+        "author": ["Patrick Lencioni"],
+        "publicationYear": 2011,
+        "color": "#D10000",
+        "genre": ["Business & Economics"],
+        "description": "A commemorative edition of the landmark book from Patrick Lencioni When it was published ten years ago, The Five Temptations of a CEO was like no other business book that came before. Highly sought-after management consultant Patrick Lencioni deftly told the tale of a young CEO who, facing his first annual board review, knows he is failing, but doesn't know why. Refreshingly original and utterly compelling, this razor-sharp novelette plus self-assessment (written to be read in one sitting) serves as a timeless and potent reminder that success as a leader can come down to practicing a few simple behaviors behaviors that are painfully difficult for each of us to master. Any executive can learn how to recognize the mistakes that leaders can make and how to avoid them. The lessons of The Five Temptations of a CEO, are as relevant today as ever, and this special anniversary edition celebrates ten years of inspiration and enlightenment with a brand new introduction and reflections from Lencioni on the new challenges in business and leadership that have occurred in the past ten years.",
+        "coverImage": "http://books.google.com/books/content?id=j6oCd4KyQM8C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+        "language": ["en"],
+        "bookHeight": 28.894425444781596,
+        "bookThickness": 4.700062688195461,
+        "authorOrigin": ["USA"],
+        "rating": 0,
+        "isIndian": false,
+        "addedAt": "2025-06-07T07:06:02.506Z",
+        "updatedAt": "2025-06-07T07:06:02.506Z",
+        "__v": 0
+      },
+      "uploadSource": "IMAGE",
+      "uploadSourceUrl": "https://bio-poka.s3.eu-north-1.amazonaws.com/b1a3b75a-16f5-4f6e-a970-2ebc0263c561/1752582530485-Screenshot-2025-07-15-at-4.16.04â¯PM.png",
+      "found": true
+    }
+  ]
+}

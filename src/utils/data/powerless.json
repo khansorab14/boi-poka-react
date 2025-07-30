@@ -1,0 +1,42 @@
+{
+  "message": "Book Static Anaytics fetched",
+  "data": {
+    "meta": {
+      "genres": ["Fantasy", "Young Adult"],
+      "themes": ["Power Dynamics", "Social Injustice"],
+      "historical_cultural_context": "Contemporary Fantasy Setting"
+    },
+    "analysis": {
+      "book_read_mood": { "joy": 30, "melancholic": 70 },
+      "sentiment": { "positive": 40, "neutral": 30, "negative": 30 },
+      "location_map_settings": {
+        "Location1": "Ilara",
+        "Location2": "The Capital"
+      },
+      "key_themes_and_motifs": {
+        "themes": ["Class Division", "Hidden Abilities"],
+        "motifs": ["Deception", "Rebellion"],
+        "frequent_words": ["Power", "Gifted"]
+      },
+      "dialogue_vs_narrative_ratio": {
+        "dialogue_percentage": 35,
+        "narrative_percentage": 65,
+        "note": "Narrative dominates due to world-building"
+      }
+    },
+    "audience": {
+      "readership_by_age": {
+        "18-24": 60,
+        "25-34": 25,
+        "35-44": 10,
+        "45-54": 3,
+        "55+": 2
+      },
+      "popular_quotes": [
+        "'Power changes everything.'",
+        "'We are not so different, you and I.'"
+      ],
+      "reader_demographics": "Primarily young adult females interested in fantasy and romance"
+    }
+  }
+}
