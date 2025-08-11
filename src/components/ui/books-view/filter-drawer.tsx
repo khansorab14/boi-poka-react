@@ -11,6 +11,7 @@ interface FilterDrawerProps {
   applyFilters: () => void;
   onClose: () => void;
   resetFilters?: () => void;
+  handleMultiSelect?: any;
 }
 
 const FilterDrawer: React.FC<FilterDrawerProps> = ({

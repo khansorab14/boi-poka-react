@@ -30,6 +30,10 @@ const BookDetailModal = ({
 
   if (!book) return null;
 
+  // ✅ Normalize structure so we always use `details` for rendering
+  const details = book.bookDetails || book;
+  const bookId = book.bookId || details.bookId;
+
   return (
     <div className="fixed inset-0 z-50 bg-black bg-opacity-50 flex items-center justify-center p-4">
       <div
@@ -47,25 +51,31 @@ const BookDetailModal = ({
 
         {/* Book Cover */}
         <img
-          src={book.bookDetails.coverImage || "/images/placeholder-book.png"}
-          alt={book.bookDetails.title}
+          src={details.coverImage || "/images/placeholder-book.png"}
+          alt={details.title || "Untitled"}
           className="w-full h-full object-cover rounded mb-4"
         />
 
-        {/* Book Info */}
-        <h2 className="text-xl font-semibold mb-2">{book.bookDetails.title}</h2>
+        <h2 className="text-xl font-semibold mb-2">
+          {details.title || "No title available"}
+        </h2>
+
         <p className="text-gray-700 text-sm mb-1">
-          Author: {book.bookDetails.author?.join(", ") || "Unknown"}
+          Author:{" "}
+          {Array.isArray(details.author)
+            ? details.author.join(", ")
+            : details.author || "Unknown"}
         </p>
-        {book.bookDetails.description && (
+
+        {details.description && (
           <p className="text-sm text-gray-600 mt-3 line-clamp-4">
-            {book.bookDetails.description}
+            {details.description}
           </p>
         )}
 
         {/* More Link */}
         <Link
-          to={`/books/${book.bookDetails._id}`}
+          to={`/books/${bookId}`}
           className="text-sm text-blue-600 mt-3 underline inline-block"
         >
           More

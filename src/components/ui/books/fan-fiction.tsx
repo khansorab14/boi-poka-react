@@ -1,35 +1,10 @@
 // FanFictionSlider.tsx
-import React from "react";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import { ChevronRight, Heart, User } from "lucide-react";
 
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-
-const fanFictions = [
-  {
-    title: "Divine Food",
-    username: "Ron Weasley Lover",
-    likes: 160,
-    description: "Ron's Quidditch career.",
-  },
-  {
-    title: "Hogwarts Gone Wild",
-    username: "HermioneFan101",
-    likes: 240,
-    description: "Hermione breaks all the rules.",
-  },
-  {
-    title: "The Dark Heir",
-    username: "VoldyReturns",
-    likes: 310,
-    description: "A sequel to the darkest prophecy.",
-  },
-];
-
-const FanFictionSlider = ({ fanFictionData }) => {
+const FanFictionSlider = ({ fanFictionData }: any) => {
   return (
     <div className="max-w-4xl mx-auto py-12 relative">
       <h2 className="text-4xl font-serif mb-8">Fan Fiction</h2>
@@ -42,7 +17,7 @@ const FanFictionSlider = ({ fanFictionData }) => {
         }}
         pagination={{ clickable: true }}
       >
-        {fanFictionData.map((fic, index) => (
+        {fanFictionData.map((fic: any, index: any) => (
           <SwiperSlide key={index}>
             <div className="flex items-center justify-between border-b pb-6">
               {/* Left - Profile & Info */}

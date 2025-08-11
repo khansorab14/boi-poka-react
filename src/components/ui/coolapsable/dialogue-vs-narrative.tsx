@@ -6,8 +6,10 @@ interface DialogueVsNarrativeProps {
     narrative_percentage?: number;
     note?: string;
   } | null;
+  dialoguePercent?: number;
+  narrativePercent?: number;
+  insight?: string;
 }
-
 const DialogueVsNarrative: React.FC<DialogueVsNarrativeProps> = ({
   dialogue,
 }) => {

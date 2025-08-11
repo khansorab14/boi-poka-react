@@ -13,13 +13,15 @@ import "react-toastify/dist/ReactToastify.css";
 import Step1 from "./pages/on-boarding/step1";
 import ProtectedRoute from "./components/common/protected-route/protected-route";
 import Step2 from "./pages/on-boarding/step2";
-import Home from "./pages/home/home";
+
 import WelcomeScreen1 from "./pages/welcome-screen/welcome-screen1";
 import PreferenceRatings from "./pages/welcome-screen/preference-ratings";
 import UserProfile from "./pages/user/user-profile";
 import CreateYourLibrary from "./pages/user/create-your-library";
 import AllBooks from "./pages/user/all-books";
 import BookDetailsPage from "./components/ui/books/book-details-page";
+import LayoutWithSidebar from "./pages/home/layout-with-sidebar";
+import BuddyLibraryView from "./pages/bottom-tab-navigation/inner-circle/fellow-pokas/buddy-library-view";
 
 const router = createBrowserRouter([
   {
@@ -29,7 +31,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/home",
-    element: <Home />,
+    element: <LayoutWithSidebar />,
     errorElement: <ErrorHandler />,
   },
   {
@@ -52,6 +54,8 @@ const router = createBrowserRouter([
     element: <CreateYourLibrary />,
     errorElement: <ErrorHandler />,
   },
+  { path: "/buddy-library/:buddyId", element: <BuddyLibraryView /> },
+
   {
     path: "/all-books",
     element: <AllBooks />,

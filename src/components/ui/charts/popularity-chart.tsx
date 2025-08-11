@@ -41,9 +41,9 @@ const PopularityChart: React.FC<PopularityChartProps> = ({ popularity }) => {
     legend: {
       position: "bottom",
       spacing: 20,
-      maxHeight: undefined, // allow full legend height
-      maxWidth: undefined, // allow full legend width
-      pagination: { enabled: false }, // no arrows
+      maxHeight: undefined,
+      maxWidth: undefined,
+      // pagination: { enabled: false }, // Removed unsupported property
       item: {
         paddingX: 16,
         label: { formatter: ({ datum }) => `${datum.asset} • ${datum.amount}` },

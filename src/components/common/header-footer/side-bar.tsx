@@ -1,4 +1,4 @@
-const SideBar = ({ menuOpen, setMenuOpen }) => {
+const SideBar = ({ menuOpen, setMenuOpen }: any) => {
   return (
     <div
       className={`absolute top-0 left-0 h-full w-64 bg-white shadow-lg transition-transform duration-300 ease-in-out transform ${

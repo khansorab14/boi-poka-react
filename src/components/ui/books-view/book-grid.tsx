@@ -6,18 +6,19 @@ interface BookGridProps {
   title?: string;
   author?: string;
   isSelected: boolean;
-  onSelect: () => void;
+  onSelect: any;
   onClick: () => void;
+  mode?: "buddy" | "home";
 }
 
 const BookGrid: React.FC<BookGridProps> = ({
-  bookId,
   coverImage,
   title,
-  author,
+
   isSelected,
   onSelect,
   onClick,
+  mode,
 }) => {
   return (
     <div
@@ -26,20 +27,21 @@ const BookGrid: React.FC<BookGridProps> = ({
       }`}
       onClick={onClick}
     >
-      {/* Select Icon */}
-      <button
-        onClick={(e) => {
-          e.stopPropagation();
-          onSelect();
-        }}
-        className={`absolute top-2 right-2 w-6 h-6 rounded-full flex items-center justify-center text-xs border ${
-          isSelected
-            ? "bg-blue-600 text-white border-blue-600"
-            : "bg-white text-gray-500 border-gray-300"
-        }`}
-      >
-        {isSelected ? "✓" : "+"}
-      </button>
+      {mode !== "buddy" && (
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            onSelect();
+          }}
+          className={`absolute top-2 right-2 w-6 h-6 rounded-full flex items-center justify-center text-xs border ${
+            isSelected
+              ? "bg-blue-600 text-white border-blue-600"
+              : "bg-white text-gray-500 border-gray-300"
+          }`}
+        >
+          {isSelected ? "✓" : "+"}
+        </button>
+      )}
 
       {/* Cover Image */}
       <div className="aspect-[2/3] w-full">
@@ -49,14 +51,6 @@ const BookGrid: React.FC<BookGridProps> = ({
           className="w-full h-full object-cover"
         />
       </div>
-
-      {/* Book Info */}
-      {/* <div className="p-3 text-center">
-        <h3 className="text-sm font-medium text-gray-800 line-clamp-2">
-          {title}
-        </h3>
-        <p className="text-xs text-gray-500 mt-1 line-clamp-1">{author}</p>
-      </div> */}
     </div>
   );
 };

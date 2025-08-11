@@ -1,10 +1,11 @@
 import React from "react";
 
 interface Props {
-  lengths: number[];
+  lengths?: number[];
+  data?: any;
 }
 
-const ChapterLengthDistribution: React.FC<Props> = ({ data }) => {
+const ChapterLengthDistribution: React.FC<Props> = ({ data }: any) => {
   console.log(data, "length data ");
   //   const max = Math.max(...lengths);
   //   const avg = Math.round(lengths.reduce((a, b) => a + b, 0) / lengths.length);

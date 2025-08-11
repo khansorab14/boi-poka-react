@@ -1,9 +1,8 @@
 // components/ui/library/library-view.tsx
 
-import React from "react";
 import BookGrid from "../../components/ui/books-view/book-grid.tsx";
 import BookList from "../../components/ui/books-view/book-list";
-import ShelfRow from "../../components/ui/books-view/shelf-view";
+import ShelfRow from "../../components/ui/books-view/shelf-row.tsx";
 
 const LibraryView = ({ data, view }: { data: any[]; view: string }) => {
   console.log(data, "data from library");

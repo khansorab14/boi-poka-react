@@ -11,41 +11,64 @@ interface Props {
   selectedLibrary: string;
   setSelectedLibrary: (value: string) => void;
   onLibraryIdChange: (id: string) => void;
+  mode?: "buddy" | "home"; // optional, defaults to "user"
+  buddyId?: string; // required when mode is "buddy"
 }
 
 const LibraryDropdown = ({
   selectedLibrary,
   setSelectedLibrary,
   onLibraryIdChange,
+  mode,
+  buddyId,
 }: Props) => {
   const [libraries, setLibraries] = useState<Library[]>([]);
   const setSelectedLibraryId = useAuthStore(
     (state) => state.setSelectedLibraryId
-  ); // ✅ Zustand setter
+  );
 
   useEffect(() => {
     const fetchLibraryNames = async () => {
       try {
-        const response = await axiosInstance.get("/userbook/getLibraryData");
-        const librariesData = response.data.data.libraryData;
+        let response;
 
-        const formatted = librariesData.map((lib: any) => ({
-          name: lib.libraryName,
-          id: lib.libraryId,
-        }));
+        if (mode === "buddy" && buddyId) {
+          response = await axiosInstance.get(
+            `/innercircle/getMembersAllLibraries/${buddyId}`
+          );
 
-        setLibraries(formatted);
+          const buddyLibraries = response.data?.data || [];
+
+          const formatted = buddyLibraries.map((lib: any) => ({
+            name: lib.libraryName,
+            id: lib.libraryId,
+          }));
+
+          setLibraries(formatted);
+        } else {
+          response = await axiosInstance.get("/userbook/getLibraryData");
+
+          const librariesData = response.data.data.libraryData;
+
+          const formatted = librariesData.map((lib: any) => ({
+            name: lib.libraryName,
+            id: lib.libraryId,
+          }));
+
+          setLibraries(formatted);
+        }
       } catch (error) {
         console.error("❌ Failed to fetch library names", error);
       }
     };
 
     fetchLibraryNames();
-  }, []);
+  }, [mode, buddyId]);
+
   useEffect(() => {
-    setSelectedLibrary(""); // Set dropdown to "All Books"
-    onLibraryIdChange(""); // Notify parent that no specific library is selected
-    setSelectedLibraryId(""); // Set Zustand state to empty (All Books)
+    setSelectedLibrary(""); // All Books
+    onLibraryIdChange(""); // notify parent
+    setSelectedLibraryId(""); // Zustand state
   }, []);
 
   return (
@@ -59,8 +82,8 @@ const LibraryDropdown = ({
           const selected = libraries.find((lib) => lib.name === selectedName);
           const selectedId = selected?.id || "";
 
-          onLibraryIdChange(selectedId); // send ID to parent
-          setSelectedLibraryId(selectedId); // ✅ update Zustand state
+          onLibraryIdChange(selectedId);
+          setSelectedLibraryId(selectedId);
         }}
         className="border p-2 rounded w-32"
       >

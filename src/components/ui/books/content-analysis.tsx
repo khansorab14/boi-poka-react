@@ -5,10 +5,10 @@ import SentimentMeter from "../charts/sentiments";
 import BookMode from "../charts/book-mode";
 import ReviewSlider from "./review-slider";
 import FanFictionSlider from "./fan-fiction";
-import OtherBestsellers from "./other-best-seller";
+
 import DialogueVsNarrative from "../coolapsable/dialogue-vs-narrative";
 import bookData from "../../../utils/data/powerless.json";
-import KeyThemesAndMotifsChart from "./key-themes-and-motifs";
+
 import KeyThemesMotifs from "./key-themes-and-motifs";
 import LocationMapSetting from "./location-map-setting";
 
@@ -26,16 +26,18 @@ interface DialogueVsNarrativeData {
 }
 const ContentAnalysis: React.FC<ContentAnalysisProps> = ({ id }) => {
   const [openSections, setOpenSections] = useState<Record<string, boolean>>({});
-  const [data, setData] = useState<ChartData[]>([]);
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [loading, setLoading] = useState(true);
-  const [popularity, setPopularity] = useState<ChartData[]>([]);
-  const [sentiments, setSentiments] = useState<number | undefined>(undefined);
-  const [bookMode, setBookMoodData] = useState<ChartData[]>([]);
+
   const [reviewData, setReviewData] = useState<ChartData[]>([]);
   const [fanFictionData, setFanFictionsData] = useState<ChartData[]>([]);
   const [dialogue, setDialogue] = useState<DialogueVsNarrativeData | null>(
     null
   );
+  const [popularity, setPopularity] = useState<Record<string, number>>({});
+  const [sentiments, setSentiments] = useState<any | undefined>(undefined);
+  const [bookMode, setBookMoodData] = useState<Record<string, number>>({});
   const [keyTheme, setKeyThemes] = useState<any | null>(null);
   const [locationMap, setLocationMap] = useState<any | null>(null);
 
@@ -120,6 +122,9 @@ const ContentAnalysis: React.FC<ContentAnalysisProps> = ({ id }) => {
     setLocationMap(bookData?.data?.analysis?.location_map_settings);
   }, []);
 
+  if (loading) {
+    return <div className="text-center py-6">Loading content…</div>;
+  }
   return (
     <div className="max-w-2xl mx-auto  py-8">
       <h2 className="text-2xl font-serif font-semibold mb-6">

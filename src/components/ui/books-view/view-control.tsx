@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { BookOpen, LayoutGrid, List, Filter, SortAsc, X } from "lucide-react";
+import { BookOpen, LayoutGrid, List, Filter, SortAsc } from "lucide-react";
 import FilterDrawer from "./filter-drawer";
 import SortDrawer from "./sort-drawer";
 import axiosInstance from "../../../api/axios-instance";
@@ -12,47 +12,50 @@ interface ViewControlsProps {
   setFilteredData: (data: any[]) => void;
 
   onFilterChange: (genre: string[], author: string[]) => void;
-  onSortChange: (sortOption: string) => void; // ✅ new prop
+  onSortChange: (sortOption: string) => void;
 
-  applyFilters: () => void;
+  applyFilters?: () => void;
+
+  mode?: "home" | "buddy"; // <-- new prop
 }
 
 const ViewControls = ({
   sortedData,
-
   view,
   setView,
   setFilteredData,
   onSortChange,
   onFilterChange,
+  mode, // default to "home"
 }: ViewControlsProps) => {
   const [filterGenres, setFilterGenres] = useState<string[]>([]);
   const [filterAuthors, setFilterAuthors] = useState<string[]>([]);
   const [sort, setSort] = useState("Title");
   const [showFilterDrawer, setShowFilterDrawer] = useState(false);
   const [showSortDrawer, setShowSortDrawer] = useState(false);
-  const [generes, setGenres] = useState();
-  const [author, setAuthors] = useState();
-  console.log(filterGenres, "filterGenres");
-  console.log(filterAuthors, "filterAuthors");
+  const [generes, setGenres] = useState<string[]>([]);
+  const [author, setAuthors] = useState<string[]>([]);
+
+  // ✅ Fetch filters ONLY if not in buddy mode
   useEffect(() => {
+    if (mode === "buddy") return;
+
     const fetchFilters = async () => {
       try {
-        const response = await axiosInstance.get("/userbook/getAllAuthors");
-        const res = await axiosInstance.get("/userbook/getAllGenres");
-
-        console.log(res.data?.data, "generes");
-        setGenres(res.data?.data);
-        console.log(response.data?.data, "authors");
-
-        setAuthors(response.data?.data);
+        const [authorRes, genreRes] = await Promise.all([
+          axiosInstance.get("/userbook/getAllAuthors"),
+          axiosInstance.get("/userbook/getAllGenres"),
+        ]);
+        setAuthors(authorRes.data?.data);
+        setGenres(genreRes.data?.data);
       } catch (error) {
-        console.error("❌ Failed to fetch library names", error);
+        console.error("❌ Failed to fetch authors/genres", error);
       }
     };
 
     fetchFilters();
-  }, []);
+  }, [mode]);
+
   const resetFilters = () => {
     setFilterGenres([]);
     setFilterAuthors([]);
@@ -80,9 +83,10 @@ const ViewControls = ({
     onFilterChange(filterGenres, filterAuthors);
     setShowFilterDrawer(false);
   };
+
   const handleSort = (option: string) => {
     setSort(option);
-    onSortChange(option); // Notify parent
+    onSortChange(option);
 
     let sorted = [...sortedData];
 
@@ -101,7 +105,7 @@ const ViewControls = ({
           new Date(a.bookDetails?.addedAt).getTime()
       );
     } else if (option === "default") {
-      setFilteredData(sortedData); // reset  to original order
+      setFilteredData(sortedData); // reset
     }
 
     setFilteredData(sorted);
@@ -116,19 +120,21 @@ const ViewControls = ({
       event.target.selectedOptions,
       (option) => option.value
     );
-    setter(selected.includes("all") ? [] : selected); // Treat "All" as reset
+    setter(selected.includes("all") ? [] : selected);
   };
 
   return (
     <div className="flex justify-between px-4 mt-4 items-center">
-      {/* View Icons */}
       <div className="flex gap-4">
         {view !== "shelf" && (
           <>
-            <Filter
-              onClick={() => setShowFilterDrawer(true)}
-              className="cursor-pointer"
-            />
+            {/* ✅ Show filter only if not in buddy mode */}
+            {mode !== "buddy" && (
+              <Filter
+                onClick={() => setShowFilterDrawer(true)}
+                className="cursor-pointer"
+              />
+            )}
             <SortAsc
               onClick={() => setShowSortDrawer(true)}
               className="cursor-pointer"
@@ -149,19 +155,22 @@ const ViewControls = ({
         />
       </div>
 
-      <FilterDrawer
-        show={showFilterDrawer}
-        onClose={() => setShowFilterDrawer(false)}
-        allGenres={generes}
-        allAuthors={author}
-        filterGenres={filterGenres}
-        filterAuthors={filterAuthors}
-        setFilterGenres={setFilterGenres}
-        setFilterAuthors={setFilterAuthors}
-        handleMultiSelect={handleMultiSelect}
-        resetFilters={resetFilters}
-        applyFilters={applyFilters}
-      />
+      {/* ✅ Render FilterDrawer only if mode !== buddy */}
+      {mode !== "buddy" && (
+        <FilterDrawer
+          show={showFilterDrawer}
+          onClose={() => setShowFilterDrawer(false)}
+          allGenres={generes}
+          allAuthors={author}
+          filterGenres={filterGenres}
+          filterAuthors={filterAuthors}
+          setFilterGenres={setFilterGenres}
+          setFilterAuthors={setFilterAuthors}
+          handleMultiSelect={handleMultiSelect}
+          resetFilters={resetFilters}
+          applyFilters={applyFilters}
+        />
+      )}
 
       <SortDrawer
         show={showSortDrawer}

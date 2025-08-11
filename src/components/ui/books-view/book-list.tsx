@@ -2,17 +2,21 @@ import React from "react";
 import { Plus } from "lucide-react";
 
 interface BookListProps {
-  bookId: string;
-  coverImage: string;
-  isSelected: boolean;
-  allSelected: boolean;
-  onSelect: () => void;
-  onClick: () => void;
-  extraContent?: React.ReactNode; // 👈 Add this
+  bookId?: string;
+  coverImage?: string;
+  isSelected?: boolean;
+  allSelected?: boolean;
+  onSelect?: () => void;
+  onClick?: () => void;
+  extraContent?: React.ReactNode;
+  title?: string;
+  author?: string;
+  onOpenModal?: any;
+
+  mode?: "buddy" | "home"; // optional, defaults to "home"
 }
 
 const BookList: React.FC<BookListProps> = ({
-  bookId,
   coverImage,
   title = "Untitled",
   author = "Unknown",
@@ -21,6 +25,7 @@ const BookList: React.FC<BookListProps> = ({
   onSelect,
   onOpenModal,
   extraContent,
+  mode,
 }) => {
   return (
     <div
@@ -28,16 +33,19 @@ const BookList: React.FC<BookListProps> = ({
         allSelected || isSelected ? "ring-2 ring-blue-500 ring-offset-2" : ""
       }`}
     >
-      {/* Plus icon button */}
-      <button
-        onClick={(e) => {
-          e.stopPropagation(); // prevent modal opening
-          onSelect();
-        }}
-        className="absolute top-2 right-2 bg-white border border-gray-300 p-1 rounded-full shadow-md hover:bg-blue-100"
-      >
-        <Plus className="w-4 h-4 text-gray-800" />
-      </button>
+      {mode !== "buddy" && (
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+
+            //@ts-ignore
+            onSelect();
+          }}
+          className="absolute top-2 right-2 bg-white border border-gray-300 p-1 rounded-full shadow-md hover:bg-blue-100"
+        >
+          <Plus className="w-4 h-4 text-gray-800" />
+        </button>
+      )}
 
       <img
         src={coverImage || "/images/placeholder-book.png"}

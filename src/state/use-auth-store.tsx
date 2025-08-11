@@ -38,11 +38,12 @@ interface AuthState {
   registerData: RegisterData;
   token: string | null;
   isOnboarded: boolean;
+  userId: string | null;
+  setUserId: (userId: string) => void;
 
   currentShelf: string | null;
   setCurrentShelf: (shelf: string) => void;
 
-  // Library
   libraryNames: string[];
   setLibraryNames: (names: string[]) => void;
   addLibraryName: (name: string) => void;
@@ -52,32 +53,27 @@ interface AuthState {
   libraryBookMap: Record<string, string[]>;
   addBooksToLibrary: (shelfName: string, bookIds: string[]) => void;
 
-  // Book selection
   selectedBookIds: string[];
   selectBookId: (id: string) => void;
   deselectBookId: (id: string) => void;
   setSelectedBookIds: (ids: string[]) => void;
   clearSelectedBooks: () => void;
 
-  // Uploaded image
   uploadedImage: File | null;
   uploadedImageURL: string | null;
   setUploadedImage: (file: File, url: string) => void;
   setUploadedImageURL: (url: string) => void;
   clearUploadedImage: () => void;
 
-  // Genres
   selectedGenres: Genre[];
   setSelectedGenres: (genres: Genre[]) => void;
   addGenre: (genre: Genre) => void;
   removeGenre: (genreId: string) => void;
   clearGenres: () => void;
 
-  // Ratings
   preferenceRatings: PreferenceRatings;
   setPreferenceRating: (type: keyof PreferenceRatings, value: number) => void;
 
-  // Profile
   profile: UserProfileState;
   setProfileField: <K extends keyof UserProfileState>(
     key: K,
@@ -85,22 +81,22 @@ interface AuthState {
   ) => void;
   resetProfile: () => void;
 
-  // Location
   locationData: {
     latitude: number | null;
     longitude: number | null;
   };
   setLocation: (latitude: number, longitude: number) => void;
 
-  // Auth flow
-  setToken: (token: string) => void;
+  setToken: (token: string | null) => void;
   setOnboarded: (value: boolean) => void;
   setRegisterField: (field: keyof RegisterData, value: string) => void;
   resetRegisterData: () => void;
 
-  // 🔥 New
   selectedLibraryId: string;
   setSelectedLibraryId: (id: string) => void;
+
+  // ✅ LOGOUT method
+  logout: () => void;
 }
 
 const defaultRegisterData: RegisterData = {
@@ -129,9 +125,12 @@ export const useAuthStore = create<AuthState>()(
       registerData: defaultRegisterData,
       token: null,
       isOnboarded: false,
+      userId: null,
 
       setToken: (token) => set({ token }),
       setOnboarded: (value) => set({ isOnboarded: value }),
+      setUserId: (userId) => set({ userId }),
+
       setRegisterField: (field, value) =>
         set((state) => ({
           registerData: {
@@ -141,7 +140,6 @@ export const useAuthStore = create<AuthState>()(
         })),
       resetRegisterData: () => set({ registerData: defaultRegisterData }),
 
-      // Uploaded image
       uploadedImage: null,
       uploadedImageURL: null,
       setUploadedImage: (file, url) =>
@@ -150,7 +148,6 @@ export const useAuthStore = create<AuthState>()(
       clearUploadedImage: () =>
         set({ uploadedImage: null, uploadedImageURL: null }),
 
-      // Book selection
       selectedBookIds: [],
       selectBookId: (id) =>
         set((state) => ({
@@ -158,9 +155,7 @@ export const useAuthStore = create<AuthState>()(
         })),
       deselectBookId: (id) =>
         set((state) => ({
-          selectedBookIds: state.selectedBookIds.filter(
-            (bookId) => bookId !== id
-          ),
+          selectedBookIds: state.selectedBookIds.filter((bookId) => bookId !== id),
         })),
       setSelectedBookIds: (ids) => set({ selectedBookIds: ids }),
       clearSelectedBooks: () => set({ selectedBookIds: [] }),
@@ -168,11 +163,9 @@ export const useAuthStore = create<AuthState>()(
       currentShelf: null,
       setCurrentShelf: (shelf) => set({ currentShelf: shelf }),
 
-      // 🔥 New
       selectedLibraryId: "",
       setSelectedLibraryId: (id) => set({ selectedLibraryId: id }),
 
-      // Genres
       selectedGenres: [],
       setSelectedGenres: (genres) => set({ selectedGenres: genres }),
       addGenre: (genre) => {
@@ -187,7 +180,6 @@ export const useAuthStore = create<AuthState>()(
         })),
       clearGenres: () => set({ selectedGenres: [] }),
 
-      // Ratings
       preferenceRatings: {
         physicalBook: 5,
         eBook: 5,
@@ -201,7 +193,6 @@ export const useAuthStore = create<AuthState>()(
           },
         })),
 
-      // Profile
       profile: defaultProfile,
       setProfileField: (key, value) =>
         set((state) => ({
@@ -212,7 +203,6 @@ export const useAuthStore = create<AuthState>()(
         })),
       resetProfile: () => set({ profile: defaultProfile }),
 
-      // Location
       locationData: {
         latitude: null,
         longitude: null,
@@ -220,7 +210,6 @@ export const useAuthStore = create<AuthState>()(
       setLocation: (latitude, longitude) =>
         set({ locationData: { latitude, longitude } }),
 
-      // Library book map
       libraryBookMap: {},
       addBooksToLibrary: (shelfName, bookIds) =>
         set((state) => ({
@@ -236,18 +225,15 @@ export const useAuthStore = create<AuthState>()(
         set((state) => {
           const updatedMap = { ...state.libraryBookMap };
           delete updatedMap[libraryName];
-
           const updatedNames = state.libraryNames.filter(
             (name) => name !== libraryName
           );
-
           return {
             libraryBookMap: updatedMap,
             libraryNames: updatedNames,
           };
         }),
 
-      // Library names
       libraryNames: [],
       setLibraryNames: (names) => set({ libraryNames: names }),
       addLibraryName: (name) =>
@@ -260,6 +246,21 @@ export const useAuthStore = create<AuthState>()(
         set((state) => ({
           libraryNames: state.libraryNames.filter((n) => n !== name),
         })),
+
+      // ✅ LOGOUT implementation
+      logout: () =>
+        set({
+          token: null,
+          userId: null,
+          isOnboarded: false,
+          selectedBookIds: [],
+          uploadedImage: null,
+          uploadedImageURL: null,
+          selectedLibraryId: "",
+          currentShelf: null,
+          selectedGenres: [],
+          profile: defaultProfile,
+        }),
     }),
     {
       name: "auth-storage",
@@ -271,6 +272,7 @@ export const useAuthStore = create<AuthState>()(
         libraryNames: state.libraryNames,
         isOnboarded: state.isOnboarded,
         selectedLibraryId: state.selectedLibraryId,
+        userId: state.userId,
       }),
     }
   )

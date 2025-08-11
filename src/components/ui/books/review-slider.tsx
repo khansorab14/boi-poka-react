@@ -1,27 +1,9 @@
-import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
-import "swiper/css";
 
-// const reviews = [
-//   {
-//     rating: 10,
-//     source: "Chicago Tribune",
-//     quote: "A page-turner from start to finish.",
-//   },
-//   {
-//     rating: 9,
-//     source: "New York Times",
-//     quote: "Brilliantly crafted and emotionally resonant.",
-//   },
-//   {
-//     rating: 8,
-//     source: "The Guardian",
-//     quote: "A deeply satisfying literary experience.",
-//   },
-// ];
+// import "swiper/css";
 
-const ReviewSlider = ({ reviewData }) => {
+const ReviewSlider = ({ reviewData }: any) => {
   return (
     <div className="max-w-xl mx-auto  py-8">
       <h2 className="text-3xl font-serif mb-6">Reviews</h2>
@@ -32,7 +14,7 @@ const ReviewSlider = ({ reviewData }) => {
         loop={true}
         autoplay={{ delay: 3000 }}
       >
-        {reviewData.map((review, index) => (
+        {reviewData.map((review: any, index: any) => (
           <SwiperSlide key={index}>
             <div className="h-full bg-white   flex flex-col justify-between">
               <div className="text-4xl mb-2">❝</div>

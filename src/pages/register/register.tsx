@@ -5,7 +5,7 @@ import { useAuthStore } from "../../state/use-auth-store";
 import { Link, useNavigate } from "react-router-dom";
 
 const Register = () => {
-  const { setRegisterField, setToken } = useAuthStore();
+  const { setRegisterField } = useAuthStore();
   const navigate = useNavigate();
 
   const formik = useFormik({
@@ -51,7 +51,7 @@ const Register = () => {
         }
 
         navigate("/login");
-      } catch (error) {
+      } catch (error: any) {
         console.error("Registration failed:", error);
         alert("Registration failed: " + error.message);
       }

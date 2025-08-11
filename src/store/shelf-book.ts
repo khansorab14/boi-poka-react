@@ -3,9 +3,13 @@ import { persist } from "zustand/middleware";
 
 export interface Book {
   id: string;
+  _id: string;
   title: string;
   author: string[];
   color: string;
+  bookHeight: any;
+  bookThickness: any;
+  bookColorScheme: any;
   bookDetails?: Book; // For backward compatibility with ShelfBook usage
 }
 
@@ -20,30 +24,15 @@ interface ShelfState {
     toIndex: number
   ) => void;
   setShelves: (newShelves: { [shelfName: string]: Book[] }) => void;
+  populateShelvesFromBooks: (books: Book[]) => void;
 }
 
-const shelfLevels = [
-  "Top Shelf",
-  "Middle Shelf",
-  "Bottom Shelf",
-  "Floor Shelf",
-];
-const rowsPerShelf = 2;
+const layoutPattern = [10, 8, 8]; // Book count per row
 
-const generateShelves = (): { [shelfName: string]: Book[] } => {
-  const shelves: { [shelfName: string]: Book[] } = {};
-  shelfLevels.forEach((level) => {
-    for (let row = 1; row <= rowsPerShelf; row++) {
-      shelves[`${level} - Row ${row}`] = [];
-    }
-  });
-  return shelves;
-};
-
-export const useShelfStore = create<ShelfState>()(
+const useShelfStore = create<ShelfState>()(
   persist(
     (set) => ({
-      shelves: generateShelves(),
+      shelves: {},
 
       moveBook: (fromShelf, toShelf, fromIndex, toIndex) =>
         set((state) => {
@@ -53,7 +42,6 @@ export const useShelfStore = create<ShelfState>()(
           const fromBooks = [...state.shelves[fromShelf]];
           const toBooks =
             fromShelf === toShelf ? fromBooks : [...state.shelves[toShelf]];
-
           const [movedBook] = fromBooks.splice(fromIndex, 1);
           if (!movedBook) return state;
 
@@ -69,9 +57,49 @@ export const useShelfStore = create<ShelfState>()(
         }),
 
       setShelves: (newShelves) => set({ shelves: newShelves }),
+      populateShelvesFromBooks: (books: Book[]) => {
+        set(() => {
+          const newShelves: Record<string, Book[]> = {};
+          const booksByLibrary: Record<string, Book[]> = {};
+
+          // Group books by library
+          books.forEach((book: any) => {
+            const libId = book?.libraryId || "unknown";
+            if (!booksByLibrary[libId]) booksByLibrary[libId] = [];
+            booksByLibrary[libId].push(book);
+          });
+
+          let shelfCounter = 1;
+
+          Object.entries(booksByLibrary).forEach(([libId, libraryBooks]) => {
+            let bookIndex = 0;
+            let patternIndex = 0;
+
+            while (bookIndex < libraryBooks.length) {
+              const chunkSize =
+                layoutPattern[patternIndex % layoutPattern.length];
+              const chunk = libraryBooks.slice(
+                bookIndex,
+                bookIndex + chunkSize
+              );
+
+              const shelfKey = `${libId} - Shelf ${shelfCounter}`;
+              newShelves[shelfKey] = chunk;
+
+              bookIndex += chunkSize;
+              shelfCounter++;
+              patternIndex++;
+            }
+          });
+
+          return { shelves: newShelves };
+        });
+      },
     }),
     {
-      name: "shelf-storage", // <- key for localStorage
+      name: "shelf-storage", // localStorage key
     }
   )
 );
+
+export { useShelfStore };

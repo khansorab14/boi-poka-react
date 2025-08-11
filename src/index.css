@@ -30,3 +30,11 @@
 .animate-slide-in {
   animation: slide-in 0.3s ease-out forwards;
 }
+.book-transition {
+  transition: transform 0.3s ease-in-out;
+}
+/* Disable vertical scroll while dragging */
+body.dragging {
+  touch-action: none;
+  overflow: hidden;
+}

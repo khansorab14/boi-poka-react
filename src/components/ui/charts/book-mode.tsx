@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Fragment } from "react";
+import React, { useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { AgCharts } from "ag-charts-react";
 import {
@@ -7,7 +7,7 @@ import {
 } from "ag-charts-community";
 
 interface BookModeProps {
-  bookMode?: Record<string, number>; // e.g., { joy: 10, thrilling: 15, ... }
+  bookMode?: Record<string, number>;
 }
 
 const BookMode: React.FC<BookModeProps> = ({ bookMode }) => {

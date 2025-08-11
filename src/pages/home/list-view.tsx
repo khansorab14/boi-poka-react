@@ -1,15 +1,15 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 import { CheckCircle, Circle, SquareCheck } from "lucide-react";
 import BookList from "../../components/ui/books-view/book-list";
 import BookDetailModal from "../../components/ui/books/books-detail-modal";
 import Progress from "../../components/ui/progress-bar/progress-bar";
-import { useAuthStore } from "../../state/use-auth-store";
+// import { useAuthStore } from "../../state/use-auth-store";
 import axiosInstance from "../../api/axios-instance";
 
 interface ListViewProps {
   booksData: any[];
   selectedBookData: string[];
-  toggleBookSelection: (id: string) => void;
+  toggleBookSelection: any;
   setActiveBook: (book: any) => void;
   setShowModal: (visible: boolean) => void;
   showModal: boolean;
@@ -17,6 +17,10 @@ interface ListViewProps {
   selectedLibraryId?: string;
   onSelectAll?: () => void;
   onDeselectAll?: () => void;
+  lastBookRef?: (node: HTMLElement | null) => void;
+  mode?: "buddy" | "home";
+  handleBookClick: (book: any) => void;
+  isReadOnly?: boolean;
 }
 
 const ListView: React.FC<ListViewProps> = ({
@@ -30,8 +34,13 @@ const ListView: React.FC<ListViewProps> = ({
   selectedLibraryId,
   onSelectAll,
   onDeselectAll,
+  lastBookRef,
+  handleBookClick,
+  mode,
 }) => {
-  const data = useAuthStore((state) => state);
+  // const data = useAuthStore((state) => state);
+
+  console.log("📚 Books Data:", selectedBookData);
 
   const [localProgress, setLocalProgress] = useState(0);
   const [pendingValue, setPendingValue] = useState<number | null>(null);
@@ -112,10 +121,12 @@ const ListView: React.FC<ListViewProps> = ({
   return (
     <div className="relative flex flex-col gap-4 mt-6 pb-24">
       {/* Header */}
-      <div className="flex items-center justify-between px-4">
-        <h2 className="text-lg font-semibold">Books</h2>
-        <SelectAllButton />
-      </div>
+      {mode !== "buddy" && (
+        <div className="flex items-center justify-between px-4">
+          <h2 className="text-lg font-semibold">Books</h2>
+          <SelectAllButton />
+        </div>
+      )}
 
       {/* Library-wide progress bar */}
       {selectedLibraryId && allSelected && (
@@ -157,36 +168,48 @@ const ListView: React.FC<ListViewProps> = ({
           const coverImage =
             book.bookDetails?.coverImage || "/assets/icons/boipoka/image.jpg";
 
+          const isLast = index === uniqueBookList.length - 1;
+
           return (
-            <BookList
+            <div
               key={`${book.bookId}-${index}`}
-              bookId={bookId}
-              coverImage={coverImage}
-              title={book.bookDetails?.title}
-              author={book.bookDetails?.author?.join(", ")}
-              isSelected={isSelected}
-              allSelected={allSelected}
-              onSelect={() => toggleBookSelection(bookId)}
-              onOpenModal={() => {
-                setActiveBook(book);
-                setShowModal(true);
-              }}
-              extraContent={
-                selectedLibraryId && (
-                  <div className="w-full pt-2">
-                    <Progress
-                      data={progressData}
-                      bookId={book.bookId}
-                      progress={book.readProgress || 0}
-                      allSelected={false}
-                      pageNo={1}
-                      genres={[]}
-                      authors={[]}
-                    />
-                  </div>
-                )
-              }
-            />
+              ref={isLast ? lastBookRef : null}
+            >
+              <BookList
+                bookId={bookId}
+                coverImage={coverImage}
+                title={book.bookDetails?.title}
+                author={book.bookDetails?.author?.join(", ")}
+                isSelected={isSelected}
+                allSelected={allSelected}
+                onSelect={() => toggleBookSelection(bookId)}
+                onClick={() => {
+                  handleBookClick?.(book);
+                  setActiveBook(book);
+                  setShowModal(true);
+                }}
+                onOpenModal={() => {
+                  handleBookClick(book);
+                  setActiveBook(book);
+                  setShowModal(true);
+                }}
+                extraContent={
+                  selectedLibraryId && (
+                    <div className="w-full pt-2">
+                      <Progress
+                        data={progressData}
+                        bookId={book.bookId}
+                        progress={book.readProgress || 0}
+                        allSelected={false}
+                        pageNo={1}
+                        genres={[]}
+                        authors={[]}
+                      />
+                    </div>
+                  )
+                }
+              />
+            </div>
           );
         })
       )}

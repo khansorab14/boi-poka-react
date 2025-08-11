@@ -36,7 +36,7 @@ const LibraryScreen = () => {
     <div>
       <h2 className="text-xl font-bold mb-4">Books in: {currentShelf}</h2>
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-        {books.map((book, index) => (
+        {books.map((book: any, index: any) => (
           <div key={index} className="p-2 border rounded shadow-sm">
             <img
               src={book.coverImage}

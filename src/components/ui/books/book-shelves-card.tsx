@@ -1,5 +1,5 @@
 import React from "react";
-import { Plus, Rows3, AlignVerticalJustifyStart } from "lucide-react";
+import { Rows3, AlignVerticalJustifyStart } from "lucide-react";
 
 const BookShelfCard: React.FC<{ shelvesData: any[] }> = ({ shelvesData }) => {
   const shelf = shelvesData?.[0];

@@ -25,22 +25,24 @@ const AllBooks = () => {
   const [activeTab, setActiveTab] = useState("identified");
   const [showDrawer, setShowDrawer] = useState(false);
   const [newLibraryName, setNewLibraryName] = useState("");
-  const [selectedLibraries, setSelectedLibraries] = useState([]);
+  const [selectedLibraries, setSelectedLibraries] = useState<any>();
   const [libraryMode, setLibraryMode] = useState("existing");
   const [existingLibraries, setExistingLibraries] = useState([]);
   const [loading, setLoading] = useState(false);
 
   const identifiedBooks = responseData.data.filter(
-    (item) => item.message === "Book already exists in master"
+    (item: any) => item.message === "Book already exists in master"
   );
   const doubtfulBooks = responseData.data.filter(
-    (item) => item.message === "Book not found"
+    (item: any) => item.message === "Book not found"
   );
 
   const books = activeTab === "identified" ? identifiedBooks : doubtfulBooks;
 
   const toggleSelectAll = () => {
-    const ids = books.map((item, idx) => item?.data?._id || `book-${idx}`);
+    const ids = books.map(
+      (item: any, idx: any) => item?.data?._id || `book-${idx}`
+    );
     if (selectedBookIds.length === books.length) {
       setSelectedBookIds([]);
     } else {
@@ -158,7 +160,7 @@ const AllBooks = () => {
       </div>
 
       <div className="flex flex-col gap-4 overflow-y-auto max-h-[calc(100vh-240px)]">
-        {books.map((item, idx) => {
+        {books.map((item: any, idx: any) => {
           const bookId = item?.data?._id || `book-${idx}`;
           const isSelected = selectedBookIds.includes(bookId);
           const coverImage =
@@ -271,7 +273,7 @@ const AllBooks = () => {
                     }}
                     className="w-full px-4 py-2 mt-4 rounded-lg border text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 h-40"
                   >
-                    {existingLibraries.map((lib, idx) => (
+                    {existingLibraries.map((lib: any, idx) => (
                       <option key={idx} value={lib.libraryId}>
                         {lib.libraryName}
                       </option>

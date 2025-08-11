@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import axiosInstance from "../../../api/axios-instance";
 import ContentAnalysis from "./content-analysis";
 import ReadingStatistics from "./reading-statistics";
-import ReviewSlider from "./review-slider";
+
 import OtherBestsellers from "./other-best-seller";
 import CommunitySocialMatric from "./community-social-matric";
 import bookData from "../../../utils/data/powerless.json";
@@ -40,6 +40,8 @@ const BookDetailsPage = () => {
   const [reader, setReader] = useState<any | null>(null);
   const [readingData, setReadingData] = useState<any | null>(null);
   const [shelvesData, setShelvesData] = useState<any | null>(null);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -90,10 +92,16 @@ const BookDetailsPage = () => {
   } = book;
 
   const charLimit = 150;
-  const isLong = description?.length > charLimit;
+  const isLong = (description?.length ?? 0) > charLimit;
 
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 py-8">
+      <button
+        onClick={() => navigate(-1)}
+        className="mb-4 flex items-center text-sm text-blue-600 hover:underline"
+      >
+        ← Back
+      </button>
       {/* Top section: Cover + Metadata */}
       <div className="flex flex-col md:flex-row gap-6 md:gap-10 items-start">
         {/* Left: Cover image */}

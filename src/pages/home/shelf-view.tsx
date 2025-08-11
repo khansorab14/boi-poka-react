@@ -1,62 +1,43 @@
-import React, { useEffect, useRef, useState, useCallback } from "react";
-import ShelfRow from "../../components/ui/books-view/shelf-view";
+import ShelfRow from "../../components/ui/books-view/shelf-row";
 
 interface ShelfViewProps {
   sortOption?: string;
   shelves: {
     [shelfName: string]: any[];
   };
-  onLoadMore?: () => void;
-  hasMore?: boolean;
+  lastBookRef?: (node: HTMLDivElement | null) => void;
+  mode?: boolean; // true for buddy mode, false for user mode
 }
 
 const ShelfView: React.FC<ShelfViewProps> = ({
   shelves,
-  sortOption,
-  onLoadMore,
-  hasMore,
+  sortOption = "default",
+  lastBookRef,
+  mode,
 }) => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [isLoading, setIsLoading] = useState(false);
-
-  const handleScroll = useCallback(() => {
-    const container = containerRef.current;
-    if (!container || isLoading || !hasMore) return;
-
-    const { scrollTop, scrollHeight, clientHeight } = container;
-    if (scrollTop + clientHeight >= scrollHeight - 300) {
-      setIsLoading(true);
-      onLoadMore?.();
-      setTimeout(() => setIsLoading(false), 500);
-    }
-  }, [isLoading, onLoadMore, hasMore]);
-
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    container.addEventListener("scroll", handleScroll);
-    return () => container.removeEventListener("scroll", handleScroll);
-  }, [handleScroll]);
-
+  console.log(mode, "sohrmodeab");
   return (
-    <div
-      ref={containerRef}
-      className="h-[calc(100vh-100px)] overflow-y-auto border-4 border-black m-1"
-    >
-      {Object.entries(shelves).map(([shelfName, books]) => (
-        <ShelfRow
-          key={shelfName}
-          shelfName={shelfName}
-          books={books}
-          sortOption={sortOption}
-        />
-      ))}
+    <div className="mx-2">
+      {Object.entries(shelves).map(
+        ([shelfName, books], shelfIndex, shelfArray) => {
+          const isLastShelf = shelfIndex === shelfArray.length - 1;
+          const lastBookIndex = books.length - 1;
 
-      {isLoading && (
-        <div className="text-center py-4 text-gray-500 text-sm">
-          Loading more books...
-        </div>
+          return (
+            <ShelfRow
+              mode={mode}
+              key={shelfName}
+              shelfName={shelfName}
+              books={books}
+              sortOption={sortOption}
+              lastBookRef={(bookIndex: number) =>
+                isLastShelf && bookIndex === lastBookIndex
+                  ? lastBookRef
+                  : undefined
+              }
+            />
+          );
+        }
       )}
     </div>
   );

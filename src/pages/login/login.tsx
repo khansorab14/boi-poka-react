@@ -7,7 +7,8 @@ import { useEffect } from "react";
 import { toast } from "react-toastify";
 
 const Login = () => {
-  const { setToken, setOnboarded } = useAuthStore();
+  const { setToken, setOnboarded, setUserId } = useAuthStore();
+
   const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
@@ -27,6 +28,7 @@ const Login = () => {
 
         if (data?.token) {
           setToken(data.token);
+          setUserId(data.userId);
           setOnboarded(!!data.onBoarded);
 
           toast.success(`✅ ${response.data.message}`, {

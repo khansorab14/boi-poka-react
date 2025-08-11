@@ -1,74 +1,99 @@
-import React, { useState } from "react";
-import { Search } from "lucide-react";
+import React, { useState, useEffect } from "react";
 import Footer from "../../components/common/header-footer/footer";
 import Header from "../../components/common/header-footer/header";
+import { useAuthStore } from "../../state/use-auth-store";
 
-const LayoutWithSidebar = ({ children }: { children: React.ReactNode }) => {
+import { AnimatePresence, motion } from "framer-motion";
+
+import Home from "../../pages/home/home";
+import InnerCircle from "../bottom-tab-navigation/inner-circle/inner-circle";
+import IamBoared from "../bottom-tab-navigation/iam-boared/iam-boared";
+import MyPersona from "../bottom-tab-navigation/persona/my-persona";
+import Sidebar from "../side-bar/side-bar";
+import axiosInstance from "../../api/axios-instance";
+import { useNavigateTabStore } from "../../store/navigate-tab-store";
+
+const tabOrder = [
+  "Library",
+  "Inner Circle",
+  "I am Bored",
+  "My Persona",
+  "Settings",
+];
+
+const LayoutWithSidebar: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [bottomTab, setBottomTab] = useState("Library");
+  const [userData, setUserData] = useState(null);
+  const token = useAuthStore((state) => state.token);
 
-  const handleAddItem = () => {
-    // Your logic (already handled inside the Footer, but you can log here if needed)
-    console.log("Add Item Clicked");
+  const { currentTab, previousTab } = useNavigateTabStore();
+
+  const getDirection = (current: string, previous: string) => {
+    const currentIndex = tabOrder.indexOf(current);
+    const prevIndex = tabOrder.indexOf(previous);
+    return currentIndex > prevIndex ? 1 : -1;
+  };
+
+  const direction = getDirection(currentTab, previousTab as string);
+
+  useEffect(() => {
+    if (token) fetchUserData();
+  }, [token]);
+
+  const fetchUserData = async () => {
+    try {
+      const res = await axiosInstance.get("/user/getUser", {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      setUserData(res.data.data);
+    } catch (err) {
+      console.error("Failed to fetch user data", err);
+    }
+  };
+
+  const renderMainContent = () => {
+    const contentMap: Record<string, JSX.Element> = {
+      Library: <Home />,
+      "Inner Circle": <InnerCircle />,
+      "I am Bored": <IamBoared />,
+      "My Persona": <MyPersona />,
+      Settings: <MyPersona />,
+    };
+
+    const currentContent = contentMap[currentTab] ?? (
+      <div className="p-4">Coming Soon</div>
+    );
+
+    return (
+      <AnimatePresence mode="wait" custom={direction}>
+        <motion.div
+          key={currentTab}
+          custom={direction}
+          initial={{ x: direction * 100, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          exit={{ x: direction * -100, opacity: 0 }}
+          transition={{ duration: 0.3 }}
+          className="w-full h-full"
+        >
+          {currentContent}
+        </motion.div>
+      </AnimatePresence>
+    );
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-white relative overflow-hidden">
-      {/* Overlay */}
-      {menuOpen && (
-        <div
-          onClick={() => setMenuOpen(false)}
-          className="fixed inset-0 bg-black opacity-30 z-20"
-        />
-      )}
-
-      {/* Sidebar */}
-      <div
-        className={`fixed top-0 left-0 h-full w-64 bg-white z-30 shadow-lg transform transition-transform duration-300 ease-in-out ${
-          menuOpen ? "translate-x-0" : "-translate-x-full"
-        }`}
-      >
-        <div className="p-4 relative">
-          <button
-            onClick={() => setMenuOpen(false)}
-            className="absolute top-4 right-4 text-gray-600"
-          >
-            ✖
-          </button>
-          <h2 className="text-xl font-semibold mb-4">Menu</h2>
-          <ul className="space-y-3 text-gray-700">
-            <li>
-              <button onClick={() => alert("📚 Your Library")}>
-                Your Library
-              </button>
-            </li>
-            <li>
-              <button onClick={() => alert("🔔 Notifications")}>
-                Notifications
-              </button>
-            </li>
-            <li>
-              <button onClick={() => alert("⚙️ Settings")}>Settings</button>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      {/* Header */}
+    <div className="flex flex-col min-h-screen bg-white relative">
+      <Sidebar
+        isOpen={menuOpen}
+        onClose={() => setMenuOpen(false)}
+        userData={userData}
+      />
       <Header
         onMenuOpen={() => setMenuOpen(true)}
         onSearchToggle={() => console.log("Search toggled")}
       />
-
-      {/* Main Content */}
-      <main className="flex-grow ">{children}</main>
-
-      {/* Footer */}
-      <Footer
-        bottomTab={bottomTab}
-        setBottomTab={setBottomTab}
-        handleAddItem={handleAddItem}
-      />
+      <main className="flex-grow overflow-y-auto">{renderMainContent()}</main>
+      <Footer />
     </div>
   );
 };

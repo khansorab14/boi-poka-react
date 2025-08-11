@@ -2,7 +2,7 @@ import axios from "axios";
 import { useAuthStore } from "../state/use-auth-store";
 
 const axiosInstance = axios.create({
-  baseURL: "http://ec2-13-60-94-109.eu-north-1.compute.amazonaws.com:3333/api",
+  baseURL: "/api",
   headers: {
     "Content-Type": "application/json",
   },

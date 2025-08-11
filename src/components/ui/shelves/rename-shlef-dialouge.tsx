@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axiosInstance from "../../../api/axios-instance";
 
-interface Shelf {
-  libraryId: string;
-  libraryName: string;
-}
+// interface Shelf {
+//   libraryId: string;
+//   libraryName: string;
+// }
 
 interface RenameShelfDialogProps {
   isOpen: boolean;
@@ -19,28 +19,39 @@ const RenameShelfDialog: React.FC<RenameShelfDialogProps> = ({
   onClose,
   onRenameSuccess,
 }) => {
-  const [shelves, setShelves] = useState<Shelf[]>([]);
+  // const [shelves, setShelves] = useState<Shelf[]>([]);
   const [selectedLibraryId, setSelectedLibraryId] = useState("");
   const [newName, setNewName] = useState(currentName);
   const [loading, setLoading] = useState(false);
   const [fetchingLibraries, setFetchingLibraries] = useState(false);
-  console.log(shelves, "shelves->>");
+
   useEffect(() => {
     if (isOpen) {
       fetchLibraries();
     }
   }, [isOpen]);
 
+  useEffect(() => {
+    if (isOpen) {
+      setNewName(currentName); // reset newName input when dialog opens
+    }
+  }, [isOpen, currentName]);
+
   const fetchLibraries = async () => {
     setFetchingLibraries(true);
     try {
       const res = await axiosInstance.get("/userbook/getLibraryData");
-      console.log(res.data.data, "res.data.data");
       const libraryData = res.data.data.libraryData;
-      setShelves(libraryData);
+      // setShelves(libraryData);
       if (libraryData && libraryData.length > 0) {
-        setSelectedLibraryId(libraryData[0].libraryId);
-        setNewName(libraryData[0].libraryName);
+        const matchedShelf = libraryData.find(
+          (shelf: any) => shelf.libraryName === currentName
+        );
+        if (matchedShelf) {
+          setSelectedLibraryId(matchedShelf.libraryId);
+        } else {
+          setSelectedLibraryId(libraryData[0].libraryId);
+        }
       }
     } catch (err) {
       console.error("Failed to fetch libraries", err);
@@ -54,10 +65,10 @@ const RenameShelfDialog: React.FC<RenameShelfDialogProps> = ({
     setLoading(true);
     try {
       await axiosInstance.put(`/userbook/renameLibrary/${selectedLibraryId}`, {
-        newName: newName,
+        newName,
       });
-      onRenameSuccess(selectedLibraryId, newName);
-      onClose();
+      onRenameSuccess(selectedLibraryId, newName.trim());
+      onClose(); // ✅ Close the dialog after renaming
     } catch (err) {
       console.error("Rename failed", err);
     } finally {
@@ -72,25 +83,21 @@ const RenameShelfDialog: React.FC<RenameShelfDialogProps> = ({
       <div className="bg-white p-6 rounded-xl w-[90%] max-w-md">
         <h2 className="text-lg font-semibold mb-4">Rename Shelf</h2>
 
-        <label className="text-sm text-gray-700 mb-1 block">Library Name</label>
+        <label className="text-sm text-gray-700 mb-1 block">Current Name</label>
         <div className="border w-full px-3 py-2 rounded mb-4 bg-gray-50">
-          {fetchingLibraries ? "Loading..." : (shelves.length > 0 ? shelves[0].libraryName : "No library found")}
+          {currentName}
         </div>
 
         <label className="text-sm text-gray-700 mb-1 block">New Name</label>
         <input
           className="border w-full px-3 py-2 rounded mb-4"
-          value={newName}
+          value={newName} // ✅ correct binding
           onChange={(e) => setNewName(e.target.value)}
         />
 
         <div className="flex justify-end gap-3">
-          <button 
-            onClick={() => {
-              setFetchingLibraries(false);
-              setLoading(false);
-              onClose();
-            }} 
+          <button
+            onClick={onClose}
             className="text-gray-500"
             disabled={loading}
           >

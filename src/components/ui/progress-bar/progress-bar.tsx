@@ -27,9 +27,6 @@ const Progress: React.FC<ProgressProps> = ({
   bookId,
   data = [],
   allSelected = false,
-  pageNo = 1,
-  genres = [],
-  authors = [],
 }) => {
   const [localProgress, setLocalProgress] = useState(progress);
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
