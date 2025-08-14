@@ -22,6 +22,10 @@ import AllBooks from "./pages/user/all-books";
 import BookDetailsPage from "./components/ui/books/book-details-page";
 import LayoutWithSidebar from "./pages/home/layout-with-sidebar";
 import BuddyLibraryView from "./pages/bottom-tab-navigation/inner-circle/fellow-pokas/buddy-library-view";
+import WhatsNew from "./components/ui/game-section/whats-new";
+import IndulgeInInsomnia from "./components/ui/game-section/indulge-in-insomnia";
+import WeeklyRecommendation from "./components/ui/game-section/weekly-reccomdation";
+import QuizPage from "./components/ui/game-section/puzzle/quiz-page";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +36,26 @@ const router = createBrowserRouter([
   {
     path: "/home",
     element: <LayoutWithSidebar />,
+    errorElement: <ErrorHandler />,
+  },
+  {
+    path: "/whats-new",
+    element: <WhatsNew />,
+    errorElement: <ErrorHandler />,
+  },
+  {
+    path: "/insomnia",
+    element: <IndulgeInInsomnia />,
+    errorElement: <ErrorHandler />,
+  },
+  {
+    path: "/recommendation",
+    element: <WeeklyRecommendation />,
+    errorElement: <ErrorHandler />,
+  },
+  {
+    path: "/puzzle",
+    element: <QuizPage />,
     errorElement: <ErrorHandler />,
   },
   {
